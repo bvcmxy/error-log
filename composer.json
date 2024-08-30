@@ -1,0 +1,53 @@
+{
+  "name": "bvcmxy/error-log",
+  "description": "Library to send logs to ErrorLog",
+  "type": "library",
+  "require": {
+    "php": ">=8.0",
+    "guzzlehttp/guzzle": "^7.8",
+    "illuminate/support": ">8.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Bvcmxy\\ErrorLog\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Bvcmxy\\ErrorLog\\Tests\\": "tests/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Bogdan Vivian",
+      "email": "vivianbogdan@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "config": {
+    "sort-packages": true,
+    "preferred-install": "dist",
+    "optimize-autoloader": true,
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Bvcmxy\\ErrorLog\\Providers\\PackageServiceProvider"
+      ],
+      "aliases": [
+        "Bvcmxy\\ErrorLog\\Facades\\ErrorLog"
+      ]
+    }
+  },
+  "require-dev": {
+    "laravel/pint": "^1.5",
+    "mockery/mockery": "^1.6",
+    "orchestra/testbench": "^7.41",
+    "pestphp/pest": "^1.23",
+    "phpstan/phpstan": "^1.10"
+  },
+  "prefer-stable": true
+}
