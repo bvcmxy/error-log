@@ -22,7 +22,7 @@ class ErrorLogApp
 
     public function __construct()
     {
-        $this->config = config('error-log-config.hostData');
+        $this->config = config('error-log-config');
         $client = new Client(
             [
                 'timeout' => 2.0,

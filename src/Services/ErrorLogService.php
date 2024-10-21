@@ -50,6 +50,7 @@ class ErrorLogService
             [
                 'headers' => $this->headers,
                 'body' => $body,
+                'verify' => false,
             ]
         );
         if ($response->getStatusCode() !== Response::HTTP_CREATED) {
