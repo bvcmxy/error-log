@@ -11,7 +11,7 @@ return [
         'version' => env('APP_VERSION', null),
         'user' => env('LOG_USER', null),
         'device' => env('LOG_DEVICE', null),
-        'now' => env('LOG_NOW', Carbon::now()->toDateTimeString()),
+        'now' => env('LOG_NOW', \Carbon\Carbon::now()->toDateTimeString()),
     ]
 ];
 
