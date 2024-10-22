@@ -58,7 +58,7 @@ class ErrorLogApi extends AbstractProcessingHandler implements LoggerInterface
         $this->errorLogService->log($errorLogDto);
     }
 
-    public function log($level, Stringable|string $message, array $context = [])
+    public function log($level, Stringable|string $message, array $context = []): void
     {
         $this->write([
             'level_name' => $level,
