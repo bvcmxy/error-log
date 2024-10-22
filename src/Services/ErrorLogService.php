@@ -54,10 +54,10 @@ class ErrorLogService
             ]
         );
         if ($response->getStatusCode() !== Response::HTTP_CREATED) {
-            Log::error('Creating log failed. Post to ' . $this->config['uri'] . ' with Body:');
-            Log::error(print_r($body, true));
-            Log::error('Response: ');
-            Log::error(print_r($response, true));
+            Log::channel('daily')->error('Creating log failed. Post to ' . $this->config['uri'] . ' with Body:');
+            Log::channel('daily')->error(print_r($body, true));
+            Log::channel('daily')->error('Response: ');
+            Log::channel('daily')->error(print_r($response, true));
         }
     }
 }
