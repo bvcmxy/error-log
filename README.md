@@ -1,7 +1,9 @@
 # Installation
 
-Run ``` composer require zf/error-log:dev-main```
+Install the package
+Run ``` composer require bvcmxy/error-log:dev-main```
 
+Publish the config file 
 Run ``` php artisan vendor:publish --tag=error-log-config```
 
 Change config/error-log-config.php uri to point to error log server
