@@ -2,13 +2,7 @@
 
 declare(strict_types=1);
 
-use Bvcmxy\ErrorLog\Logging\ErrorLogApi;
-
 return [
-    'log_channel' => [
-        'driver' => 'custom',
-        'via' => ErrorLogApi::class,
-    ],
     'api_uri' => env('ERROR_LOG_API_URI'),
     'context' => [
         'application' => env('APP_NAME', 'default_app'),
