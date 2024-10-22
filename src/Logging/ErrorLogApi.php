@@ -5,7 +5,6 @@ namespace Bvcmxy\ErrorLog\Logging;
 
 use Psr\Log\LoggerInterface;
 use Psr\Log\LoggerTrait;
-use Psr\Log\LogLevel;
 use Monolog\Logger;
 use Monolog\Handler\AbstractProcessingHandler;
 use Bvcmxy\ErrorLog\Services\ErrorLogService;
@@ -58,7 +57,7 @@ class ErrorLogApi extends AbstractProcessingHandler implements LoggerInterface
         $this->errorLogService->log($errorLogDto);
     }
 
-    public function log($level, $message, array $context = [])
+    public function log($level, Stringable|string $message, array $context = []))
     {
         $this->write([
             'level_name' => $level,
