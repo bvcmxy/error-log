@@ -10,6 +10,7 @@ use Monolog\Handler\AbstractProcessingHandler;
 use Bvcmxy\ErrorLog\Services\ErrorLogService;
 use Bvcmxy\ErrorLog\Dto\ErrorLogDto;
 use Carbon\Carbon;
+use Stringable;
 
 class ErrorLogApi extends AbstractProcessingHandler implements LoggerInterface
 {
@@ -57,7 +58,7 @@ class ErrorLogApi extends AbstractProcessingHandler implements LoggerInterface
         $this->errorLogService->log($errorLogDto);
     }
 
-    public function log($level, string|\Stringable $message, array $context = [])
+    public function log($level, Stringable|string $message, array $context = [])
     {
         $this->write([
             'level_name' => $level,
