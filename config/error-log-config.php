@@ -14,4 +14,3 @@ return [
         'now' => env('LOG_NOW', \Carbon\Carbon::now()->toDateTimeString()),
     ]
 ];
-
