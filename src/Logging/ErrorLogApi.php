@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 
 namespace Bvcmxy\ErrorLog\Logging;
 
@@ -58,7 +57,7 @@ class ErrorLogApi extends AbstractProcessingHandler implements LoggerInterface
         $this->errorLogService->log($errorLogDto);
     }
 
-    public function log($level, Stringable|string $message, array $context = []): void
+    public function log($level, $message, $context = [])
     {
         $this->write([
             'level_name' => $level,
