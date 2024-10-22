@@ -2,6 +2,8 @@
 
 namespace Bvcmxy\ErrorLog\Logging;
 
+use Monolog\DateTimeImmutable;
+use Monolog\LogRecord;
 use Psr\Log\LoggerInterface;
 use Psr\Log\LoggerTrait;
 use Monolog\Logger;
@@ -28,7 +30,7 @@ class ErrorLogApi extends AbstractProcessingHandler implements LoggerInterface
         return new static($this->errorLogService);
     }
 
-    protected function write(array $record): void
+    protected function write(LogRecord $record): void
     {
         $contextConfig = config('error-log-config.context');
 
@@ -57,12 +59,16 @@ class ErrorLogApi extends AbstractProcessingHandler implements LoggerInterface
         $this->errorLogService->log($errorLogDto);
     }
 
-    public function log($level, $message, $context = [])
+    public function log($level, Stringable|string $message, $context = []): void
     {
-        $this->write([
-            'level_name' => $level,
-            'message' => $message,
-            'context' => $context,
-        ]);
+        $logRecord = new LogRecord(
+            message: (string) $message,
+            context: $context,
+            level: Logger::toMonologLevel($level),
+            channel: 'test',
+            datetime:  new DateTimeImmutable(true),
+            extra: [],
+        );
+        $this->write($logRecord);
     }
 }
